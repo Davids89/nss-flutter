@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'view_widget.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -6,7 +7,16 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  Color nssColor = Color.fromRGBO(237, 25, 40, 1);
+  int _currentIndex = 0;
+
+  // Las variables final se asignan y no se vuelven a cambiar
+  final List<Widget> _children = [
+    View('Vista 1'),
+    View('Vista 2'),
+    View('Vista 3')
+  ];
+
+  Color _nssColor = Color.fromRGBO(237, 25, 40, 1);
 
   @override
   Widget build(BuildContext context) {
@@ -15,38 +25,47 @@ class _HomeState extends State<Home> {
         title: Text('NSS Flutter'),
         backgroundColor: Color.fromRGBO(237, 25, 40, 1),
       ),
+      body: _children[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
-          currentIndex: 0,
-          backgroundColor: nssColor,
-          items: [
-            BottomNavigationBarItem(
-              icon: new Icon(
-                Icons.home,
-                color: Colors.white,
-              ),
-              title: Text(
-                'Home',
-                style: TextStyle(color: Colors.white),
-              ),
+        onTap: onTabTapped,
+        currentIndex: _currentIndex,
+        backgroundColor: _nssColor,
+        items: [
+          BottomNavigationBarItem(
+            icon: new Icon(
+              Icons.home,
+              color: Colors.white,
             ),
-            BottomNavigationBarItem(
-              icon: new Icon(
-                Icons.alarm,
-                color: Colors.white,
-              ),
-              title: Text(
-                'Schedule',
-                style: TextStyle(color: Colors.white),
-              ),
+            title: Text(
+              'Home',
+              style: TextStyle(color: Colors.white),
             ),
-            BottomNavigationBarItem(
-              icon: new Icon(
-                Icons.account_circle,
-                color: Colors.white,
-              ),
-              title: Text('Profile', style: TextStyle(color: Colors.white)),
+          ),
+          BottomNavigationBarItem(
+            icon: new Icon(
+              Icons.alarm,
+              color: Colors.white,
             ),
-          ]),
+            title: Text(
+              'Schedule',
+              style: TextStyle(color: Colors.white),
+            ),
+          ),
+          BottomNavigationBarItem(
+            icon: new Icon(
+              Icons.account_circle,
+              color: Colors.white,
+            ),
+            title: Text('Profile', style: TextStyle(color: Colors.white)),
+          ),
+        ],
+      ),
     );
+  }
+
+  void onTabTapped(int index) {
+    setState(() {
+      _currentIndex = index;
+    });
   }
 }
