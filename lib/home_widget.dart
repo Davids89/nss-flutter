@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nosoloflutter/screens/worker_list_widget.dart';
 import 'view_widget.dart';
 
 class Home extends StatefulWidget {
@@ -12,7 +13,7 @@ class _HomeState extends State<Home> {
   // Las variables final se asignan y no se vuelven a cambiar
   final List<Widget> _children = [
     View('Vista 1'),
-    View('Vista 2'),
+    WorkerListWidget(),
     View('Vista 3')
   ];
 
@@ -43,11 +44,11 @@ class _HomeState extends State<Home> {
           ),
           BottomNavigationBarItem(
             icon: new Icon(
-              Icons.alarm,
+              Icons.business_center,
               color: Colors.white,
             ),
             title: Text(
-              'Schedule',
+              'Mates',
               style: TextStyle(color: Colors.white),
             ),
           ),
