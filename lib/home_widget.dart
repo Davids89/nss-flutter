@@ -39,6 +39,7 @@ class _HomeState extends State<Home> {
             ),
             title: Text(
               'Home',
+              key: Key('home'),
               style: TextStyle(color: Colors.white),
             ),
           ),
@@ -49,6 +50,7 @@ class _HomeState extends State<Home> {
             ),
             title: Text(
               'Mates',
+              key: Key('mates'),
               style: TextStyle(color: Colors.white),
             ),
           ),
@@ -57,7 +59,11 @@ class _HomeState extends State<Home> {
               Icons.account_circle,
               color: Colors.white,
             ),
-            title: Text('Profile', style: TextStyle(color: Colors.white)),
+            title: Text(
+              'Profile',
+              key: Key('profile'),
+              style: TextStyle(color: Colors.white),
+            ),
           ),
         ],
       ),
