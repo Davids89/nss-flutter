@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nosoloflutter/screens/profile_widget.dart';
 import 'package:nosoloflutter/screens/worker_list_widget.dart';
 import 'view_widget.dart';
 
@@ -14,7 +15,7 @@ class _HomeState extends State<Home> {
   final List<Widget> _children = [
     View('Vista 1'),
     WorkerListWidget(),
-    View('Vista 3')
+    Profile()
   ];
 
   Color _nssColor = Color.fromRGBO(237, 25, 40, 1);
